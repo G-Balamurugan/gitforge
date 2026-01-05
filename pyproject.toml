@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitforge"
+version = "1.0.0"
+description = "A Git implementation in Python - create, manage, and interact with Git repositories"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "GitForge Team"}
+]
+maintainers = [
+    {name = "GitForge Team"}
+]
+keywords = [
+    "git",
+    "vcs",
+    "version-control",
+    "repository",
+    "scm",
+    "source-control"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Version Control",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+
+[project.scripts]
+gitforge = "gitforge.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gitforge/gitforge"
+Documentation = "https://github.com/gitforge/gitforge#readme"
+Repository = "https://github.com/gitforge/gitforge.git"
+Issues = "https://github.com/gitforge/gitforge/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[tool.setuptools]
+packages = ["gitforge"]
+
+[tool.setuptools.package-data]
+gitforge = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["gitforge"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]
